@@ -53,7 +53,13 @@ export default class index extends Component {
               {this.state?.allProjects?.map((project, index) => {
                 return (
                   <Link key={index} to={`/projects/${project?.projectId}`}>
-                    <Card style={{ width: "100%", cursor: "pointer" }}>
+                    <Card
+                      style={{
+                        width: "100%",
+                        cursor: "pointer",
+                        marginBottom: "20px",
+                      }}
+                    >
                       <Image.Group>
                         {project?.images?.map((img) => (
                           <Image

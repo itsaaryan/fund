@@ -62,7 +62,11 @@ export default class index extends Component {
                   <Link to={`/projects/${project?.projectId}`}>
                     <Card
                       key={index}
-                      style={{ width: "100%", cursor: "pointer" }}
+                      style={{
+                        width: "100%",
+                        cursor: "pointer",
+                        marginBottom: "20px",
+                      }}
                     >
                       <Image.Group>
                         {project?.images?.map((img) => (
@@ -103,28 +107,37 @@ export default class index extends Component {
               })}
             </Grid.Column>
             <Grid.Column width={6}>
-              <Card
-                style={{ width: "100%", maxHeight: "500px", overflow: "auto" }}
-              >
-                <Card.Content>
-                  <Card.Header>My Most Earning Projects</Card.Header>
-                  <Card.Description>
-                    <Table>
-                      <Table.Header>
-                        <Table.Row>
-                          <Table.HeaderCell>Rank</Table.HeaderCell>
-                          <Table.HeaderCell>Project Name</Table.HeaderCell>
-                          <Table.HeaderCell>Funding (ether)</Table.HeaderCell>
-                        </Table.Row>
-                      </Table.Header>
-                      {this.renderTableBody()}
-                    </Table>
-                  </Card.Description>
-                </Card.Content>
-              </Card>
+              {this.state.allProjects.length > 0 && (
+                <Card
+                  style={{
+                    width: "100%",
+                    maxHeight: "500px",
+                    overflow: "auto",
+                  }}
+                >
+                  <Card.Content>
+                    <Card.Header>My Most Earning Projects</Card.Header>
+                    <Card.Description>
+                      <Table>
+                        <Table.Header>
+                          <Table.Row>
+                            <Table.HeaderCell>Rank</Table.HeaderCell>
+                            <Table.HeaderCell>Project Name</Table.HeaderCell>
+                            <Table.HeaderCell>Funding (ether)</Table.HeaderCell>
+                          </Table.Row>
+                        </Table.Header>
+                        {this.renderTableBody()}
+                      </Table>
+                    </Card.Description>
+                  </Card.Content>
+                </Card>
+              )}
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        {this.state.allProjects.length == 0 && (
+          <h1>No projects created yet....!</h1>
+        )}
       </Layout>
     );
   }

@@ -9,7 +9,7 @@ import web3 from "../ethereum/web3";
 export default class messages extends Component {
   state = {
     allProjects: [],
-    currProject: "",
+    currProject: {},
     chats: [],
     allChats: [],
     lastChatmsg: "",
@@ -34,8 +34,8 @@ export default class messages extends Component {
     }
   };
 
-  handleRight = async (projectId) => {
-    this.setState({ currProject: projectId });
+  handleRight = async (project) => {
+    this.setState({ currProject: project });
   };
 
   render() {
@@ -76,52 +76,51 @@ export default class messages extends Component {
                 <div style={{ overflow: "auto" }}>
                   {this.state.allProjects?.map((project, index) => {
                     return (
-                      <div
-                        key={index}
-                        style={{
-                          padding: "0 10px",
-                          cursor: "pointer",
-                          marginTop: "20px",
-                        }}
-                        onClick={() => this.handleRight(project.projectId)}
-                      >
-                        <Image
-                          src={
-                            project.images.length >= 1
-                              ? project.images[0]
-                              : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
-                          }
-                          avatar
-                          style={{ width: "40px", height: "40px" }}
-                        ></Image>
-                        <span>
-                          <b>{project.projectName}</b>
-                          <br></br>
-                          &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                          &nbsp;
-                          <small
+                      <>
+                        <div
+                          className="sidechat"
+                          key={index}
+                          onClick={() => this.handleRight(project)}
+                        >
+                          <Image
+                            src={
+                              project.images.length >= 1
+                                ? project.images[0]
+                                : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png"
+                            }
+                            avatar
                             style={{
-                              textOverflow: "ellipsis",
+                              width: "50px",
+                              height: "50px",
+                              marginTop: "5px",
                             }}
-                          >
-                            {project.projectId}
-                          </small>
-                        </span>
-                        <hr></hr>
-                      </div>
+                          ></Image>
+                          <span style={{ marginLeft: "8px" }}>
+                            <b>{project.projectName}</b>
+                          </span>
+                        </div>
+                        <hr
+                          style={{
+                            color: "lightgray",
+                            height: "1px",
+                            border: "none",
+                            borderTop: "1px solid lightgray",
+                          }}
+                        ></hr>
+                      </>
                     );
                   })}
                 </div>
               </div>
             </Grid.Column>
             <Grid.Column width="11" style={{ backgroundColor: "#f7f7f7" }}>
-              {this.state.currProject ? (
+              {this.state.currProject.projectId ? (
                 <DisPlayChats
-                  projectId={this.state.currProject}
-                  key={this.state.currProject}
+                  project={this.state.currProject}
+                  key={this.state.currProject.projectId}
                 />
               ) : (
-                <Nochats />
+                <Nochats isOwner={true} />
               )}
             </Grid.Column>
           </Grid>

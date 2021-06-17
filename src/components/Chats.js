@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Divider, Input, Loader } from "semantic-ui-react";
+import { Divider, Image, Input, Loader } from "semantic-ui-react";
 import firebase from "../config/firebase";
 import web3 from "../ethereum/web3";
 
@@ -43,7 +43,7 @@ export default class Chats extends Component {
     const db = firebase.firestore();
     await db
       .collection("chats")
-      .doc(this.props.projectId)
+      .doc(this.props.project.projectId)
       .collection("chatmessages")
       .orderBy("timeStamp", "desc")
       .onSnapshot((snapshot) =>
@@ -57,7 +57,7 @@ export default class Chats extends Component {
       const db = firebase.firestore();
       await db
         .collection("chats")
-        .doc(this.props.projectId)
+        .doc(this.props.project.projectId)
         .collection("chatmessages")
         .add({
           sender: this.state.accounts[0],
@@ -76,12 +76,30 @@ export default class Chats extends Component {
     ) : (
       <div>
         <div>
-          <h3>Chat Name</h3>
+          <Image
+            src={
+              this.props.project.images.length >= 1
+                ? this.props.project.images[0]
+                : "https://www.biiainsurance.com/wp-content/uploads/2015/05/no-image.jpg"
+            }
+            avatar
+            style={{ fontSize: "25px" }}
+          />
+          <span
+            style={{ matginLeft: "10px", fontSize: "20px", fontWeight: "600" }}
+          >
+            {this.props.project.projectName}
+          </span>
+          <small
+            style={{ float: "right", marginTop: "30px", fontWeight: "600" }}
+          >
+            {this.props.project.projectId}
+          </small>
         </div>
         <hr></hr>
         <div
           style={{
-            height: "450px",
+            height: "420px",
             display: "flex",
             flexDirection: "column-reverse",
             overflow: "auto",
@@ -151,7 +169,10 @@ export default class Chats extends Component {
               onClick: () => this.sendMessage(),
             }}
             onChange={(e) => this.setState({ message: e.target.value })}
-            style={{ width: "100%" }}
+            style={{
+              width: "100%",
+              boxShadow: "0px 0px 2px 1px lightgray",
+            }}
             placeholder="Enter text..."
           />
         </div>
