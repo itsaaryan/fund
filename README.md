@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Fund It
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The [Fund It](fund-it-9db5e.firebaseapp.com/) project was created using ethereum smart contracts,this project is created to increase the participation of contributors in the projects they are contributing in.This ethereum project is bild keeping in mind the _issues faced_ by apps like [Bonfire](www.bonfire.com), [Kickstarter](www.kickstarter.com).
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- Project description and images can be uploaded to attract more contributors.
+- Anyone can contribute to any project and get the rights to approve/refure requests.
+- Project discussion chatting groups for owner and contributors.
+- Contribution limit can be set by the owner.
+- Most funded projects are shown.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Roles
 
-### `yarn test`
+1. Owner
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   - The Owner of the project.
+   - Creates a Project to raise funds.
+   - Requests for new supplies.
+   - Finalizes a request after being approved by atleast 50% of the contributors.
 
-### `yarn build`
+2. Contributors
+   - Contributes to different projects.
+   - Can Contribute to projects.
+   - Approve/Refuse a request by the owner for supplies.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Home Page](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624709264/Screenshot_137_s49h1o.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+![Create New Project](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624709620/Screenshot_138_nkvvo9.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Messages](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624709988/Screenshot_139_eyymxb.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Chats](https://res.cloudinary.com/dsxeglxhm/image/upload/v1624710025/Screenshot_140_dhfzdf.png)
