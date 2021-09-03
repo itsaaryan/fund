@@ -1,11 +1,9 @@
 const HDWalletProvider = require("truffle-hdwallet-provider");
 const Web3 = require("web3");
+const { METAMASK_SECRET_CODE, INFURA_KEY } = require("../../dev");
 const compiledFactory = require("./build/FactoryProject.json");
 
-const provider = new HDWalletProvider(
-  "ticket patrol execute rely reward salon voyage exclude yellow perfect erase marble",
-  "wss://rinkeby.infura.io/ws/v3/df96fb2234ed4e588465249944aef4a0"
-);
+const provider = new HDWalletProvider(METAMASK_SECRET_CODE, INFURA_KEY);
 
 const web3 = new Web3(provider);
 

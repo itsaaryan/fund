@@ -1,4 +1,5 @@
 import Web3 from "web3";
+import { INFURA_KEY } from "../../dev";
 
 let web3;
 
@@ -8,9 +9,7 @@ if (typeof window !== "undefined" && typeof window.ethereum !== "undefined") {
   });
   web3 = new Web3(window.ethereum);
 } else {
-  const provider = new Web3.providers.HttpProvider(
-    "wss://rinkeby.infura.io/ws/v3/df96fb2234ed4e588465249944aef4a0"
-  );
+  const provider = new Web3.providers.HttpProvider(INFURA_KEY);
   web3 = new Web3(provider);
 }
 
